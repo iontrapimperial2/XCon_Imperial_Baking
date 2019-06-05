@@ -3,13 +3,11 @@
 @author: IonTrap/OCorfield
 """
 
-import numpy as np
-import string
 import time
 from datetime import datetime
 
-from instr_Picolog_TC_08 import Picolog_TC_08
-from instr_Agilent_XGS600 import XGS600
+from library.instr_Picolog_TC_08 import Picolog_TC_08
+from library.instr_Agilent_XGS600 import XGS600
 
 ### define logging function
 def oven_log(n):
