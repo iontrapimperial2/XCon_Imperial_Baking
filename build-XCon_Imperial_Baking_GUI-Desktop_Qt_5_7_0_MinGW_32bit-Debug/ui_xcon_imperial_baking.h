@@ -44,6 +44,16 @@ public:
     QGroupBox *groupBox_3;
     QSpacerItem *horizontalSpacer;
     QGroupBox *groupBox_2;
+    QVBoxLayout *verticalLayout_3;
+    QGridLayout *gridLayout_3;
+    QRadioButton *radioButton_ch4;
+    QRadioButton *radioButton_ch6;
+    QRadioButton *radioButton_ch2;
+    QRadioButton *radioButton_ch5;
+    QRadioButton *radioButton_ch1;
+    QRadioButton *radioButton_ch3;
+    QRadioButton *radioButton_ch7;
+    QRadioButton *radioButton_ch8;
     QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacer_7;
     QSpacerItem *horizontalSpacer_4;
@@ -106,6 +116,56 @@ public:
 
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        verticalLayout_3 = new QVBoxLayout(groupBox_2);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        radioButton_ch4 = new QRadioButton(groupBox_2);
+        radioButton_ch4->setObjectName(QStringLiteral("radioButton_ch4"));
+
+        gridLayout_3->addWidget(radioButton_ch4, 1, 1, 1, 1);
+
+        radioButton_ch6 = new QRadioButton(groupBox_2);
+        radioButton_ch6->setObjectName(QStringLiteral("radioButton_ch6"));
+
+        gridLayout_3->addWidget(radioButton_ch6, 2, 1, 1, 1);
+
+        radioButton_ch2 = new QRadioButton(groupBox_2);
+        radioButton_ch2->setObjectName(QStringLiteral("radioButton_ch2"));
+
+        gridLayout_3->addWidget(radioButton_ch2, 0, 1, 1, 1);
+
+        radioButton_ch5 = new QRadioButton(groupBox_2);
+        radioButton_ch5->setObjectName(QStringLiteral("radioButton_ch5"));
+
+        gridLayout_3->addWidget(radioButton_ch5, 2, 0, 1, 1);
+
+        radioButton_ch1 = new QRadioButton(groupBox_2);
+        radioButton_ch1->setObjectName(QStringLiteral("radioButton_ch1"));
+
+        gridLayout_3->addWidget(radioButton_ch1, 0, 0, 1, 1);
+
+        radioButton_ch3 = new QRadioButton(groupBox_2);
+        radioButton_ch3->setObjectName(QStringLiteral("radioButton_ch3"));
+
+        gridLayout_3->addWidget(radioButton_ch3, 1, 0, 1, 1);
+
+        radioButton_ch7 = new QRadioButton(groupBox_2);
+        radioButton_ch7->setObjectName(QStringLiteral("radioButton_ch7"));
+
+        gridLayout_3->addWidget(radioButton_ch7, 3, 0, 1, 1);
+
+        radioButton_ch8 = new QRadioButton(groupBox_2);
+        radioButton_ch8->setObjectName(QStringLiteral("radioButton_ch8"));
+
+        gridLayout_3->addWidget(radioButton_ch8, 3, 1, 1, 1);
+
+
+        verticalLayout_3->addLayout(gridLayout_3);
+
 
         gridLayout->addWidget(groupBox_2, 2, 4, 2, 1);
 
@@ -200,6 +260,14 @@ public:
         XCon_Imperial_Baking->setWindowTitle(QApplication::translate("XCon_Imperial_Baking", "XCon_Imperial_Baking", 0));
         groupBox_3->setTitle(QApplication::translate("XCon_Imperial_Baking", "GroupBox", 0));
         groupBox_2->setTitle(QApplication::translate("XCon_Imperial_Baking", "GroupBox", 0));
+        radioButton_ch4->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch6->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch2->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch5->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch1->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch3->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch7->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
+        radioButton_ch8->setText(QApplication::translate("XCon_Imperial_Baking", "RadioButton", 0));
         groupBox->setTitle(QApplication::translate("XCon_Imperial_Baking", "GroupBox", 0));
         radioButton_monitoring->setText(QApplication::translate("XCon_Imperial_Baking", "Monitoring", 0));
         pushButton_import->setText(QApplication::translate("XCon_Imperial_Baking", "go", 0));
