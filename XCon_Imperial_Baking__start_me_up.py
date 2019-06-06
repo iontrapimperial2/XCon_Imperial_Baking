@@ -62,8 +62,8 @@ class window(Ui_XCon_Imperial_Baking):
         self.plot_temp.setLabel('bottom', 'time', units = '', **labelstyle_L)
         self.plot_temp.showGrid(x = True, y = True)
         
-        axis = DateAxisItem(orientation='bottom')
-        axis.attachToPlotItem(self.plot_temp.getPlotItem())
+#        axis = DateAxisItem(orientation='bottom')
+#        axis.attachToPlotItem(self.plot_temp.getPlotItem())
         
         self.verticalLayout_temp.addWidget(self.plot_temp)
         #---------------------------------------------------------------------#
@@ -77,7 +77,7 @@ class window(Ui_XCon_Imperial_Baking):
 #        #---------------------------------------------------------------------#
 #
         self.timer_data = QtCore.QTimer()
-        self.timer_data.setInterval(1000)
+        self.timer_data.setInterval(30000)
         self.timer_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_data.timeout.connect(self.import_data)
 
@@ -92,6 +92,7 @@ class window(Ui_XCon_Imperial_Baking):
         self.plot_pressure.setLabel('left', 'p', units = '[mbar]', **labelstyle_L)
         self.plot_pressure.setLabel('bottom', 'time', units = '', **labelstyle_L)
         self.plot_pressure.showGrid(x = True, y = True)
+        self.plot_pressure.setLogMode(x=None, y=True)
         
         self.verticalLayout_pressure.addWidget(self.plot_pressure)
         #---------------------------------------------------------------------#
@@ -216,7 +217,7 @@ class window(Ui_XCon_Imperial_Baking):
         
         #---------------------------------------------------------------------#
         self.timer_plot_data = QtCore.QTimer()
-        self.timer_plot_data.setInterval(500)
+        self.timer_plot_data.setInterval(15000)
         self.timer_plot_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_plot_data.timeout.connect(self.t_plots)
         self.timer_plot_data.start()
@@ -290,7 +291,7 @@ class window(Ui_XCon_Imperial_Baking):
         self.p = p
         self.T_channels = T_channels
         
-        print(self.time)
+#        print(self.time)
         
     ###############################################################################
         
@@ -336,14 +337,32 @@ class window(Ui_XCon_Imperial_Baking):
 #        lc.lock_blue_1_alpha = float(self.doubleSpinBox_lock_blue_1_alpha.value())
 #        lc.lock_blue_1_beta = float(self.doubleSpinBox_lock_blue_1_beta.value())
 
+        try:               
+            x = np.arange(len(self.time))
+        except Exception:
+            pass
+
+
+        
         try:
 #            time_plot = []
 #            for i in range(len(self.time)):
 #                time_plot.append(time.mktime(datetime.datetime.now().timetuple()))
                 
-            self.plot_temp.plot(np.arange(len(self.time)),self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
+            self.plot_pressure.plot(x,self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
         except Exception:
             pass
+        
+        try:               
+            self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
+        except Exception:
+            pass
+
+        try:               
+            self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was')
+        except Exception:
+            pass       
+        
             
 #        nu_blue_1_upper = pg.PlotCurveItem([0,500],[755.186881,755.186881],pen = bluePen)
 #        nu_blue_1_lower = pg.PlotCurveItem([0,500],[755.186879,755.186879],pen = bluePen)
