@@ -13,28 +13,30 @@ class Picolog_TC_08(object):
     
     def __init__(self):
         
-        ''' loads the dll-library of the temperature logger ''' 
-        self.dll_TC = ctypes.windll.LoadLibrary("C:\\Program Files\\Pico Technology\\PicoLog 6\\usbtc08.dll")
-        
-        
-        ''' this routine returns a valid handle to the USB TC-08 if the driver
-            successfully opens it '''
-        self.device = self.dll_TC.usb_tc08_open_unit()
-        
-        self.dll_TC.usb_tc08_set_channel.argtypes = [ctypes.c_int16,ctypes.c_int16,ctypes.c_int8]
-        
-        self._temp=(ctypes.c_float *9)()
-        self._overflow_flags=ctypes.c_int16()
-        self._units = ctypes.c_int16(0)
+#        ''' loads the dll-library of the temperature logger ''' 
+#        self.dll_TC = ctypes.windll.LoadLibrary("C:\\Program Files\\Pico Technology\\PicoLog 6\\usbtc08.dll")
+#        
+#        
+#        ''' this routine returns a valid handle to the USB TC-08 if the driver
+#            successfully opens it '''
+#        self.device = self.dll_TC.usb_tc08_open_unit()
+#        
+#        self.dll_TC.usb_tc08_set_channel.argtypes = [ctypes.c_int16,ctypes.c_int16,ctypes.c_int8]
+#        
+#        self._temp=(ctypes.c_float *9)()
+#        self._overflow_flags=ctypes.c_int16()
+#        self._units = ctypes.c_int16(0)
 
 
 
 
     def set_mains(self):        
-        ''' this routine sets the USB TC-08 to reject either 50 or 60 Hz - 
-            here it is set to reject the 60Hz '''
-            
-        self.dll_TC.usb_tc08_set_mains(self.device, 50)
+#        ''' this routine sets the USB TC-08 to reject either 50 or 60 Hz - 
+#            here it is set to reject the 60Hz '''
+#            
+#        self.dll_TC.usb_tc08_set_mains(self.device, 50)
+        a = 1
+        return a
 
     
     def set_channel(self, channel):

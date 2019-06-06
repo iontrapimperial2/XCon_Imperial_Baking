@@ -6,8 +6,11 @@
 import time
 from datetime import datetime
 
-from library.instr_Picolog_TC_08 import Picolog_TC_08
-from library.instr_Agilent_XGS600 import XGS600
+#from library.instr_Picolog_TC_08 import Picolog_TC_08
+#from library.instr_Agilent_XGS600 import XGS600
+
+from library.d_instr_Picolog_TC_08 import Picolog_TC_08
+from library.d_instr_Agilent_XGS600 import XGS600
 
 ### define logging function
 def oven_log(n):
@@ -25,7 +28,7 @@ def oven_log(n):
         temp_reader.set_channel(i)
 
     ### define data file as dateString in /p_recording ###
-    date_time = 'C:\\Users\\iontrap\\Dropbox\\Imperial Ion Trap\\Oven\\Data\\' + str(n) + '.txt'
+    date_time = 'dummy_data_' + str(n) + '.txt'
     
     
     print('bake recording ctrl_c to stop')
