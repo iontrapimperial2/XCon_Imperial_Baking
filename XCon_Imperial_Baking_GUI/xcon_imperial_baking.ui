@@ -186,7 +186,7 @@
       </item>
       <item row="2" column="4" rowspan="2">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="7" column="0">
+        <item row="13" column="0">
          <widget class="QRadioButton" name="radioButton_ch_8">
           <property name="text">
            <string>Channel 8</string>
@@ -196,7 +196,17 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
+        <item row="8" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_3">
+          <property name="text">
+           <string>Channel 3</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
          <widget class="QRadioButton" name="radioButton_ch_4">
           <property name="text">
            <string>Channel 4</string>
@@ -206,27 +216,7 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_6">
-          <property name="text">
-           <string>Channel 6</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_1">
-          <property name="text">
-           <string>Channel 1</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
+        <item row="12" column="0">
          <widget class="QRadioButton" name="radioButton_ch_7">
           <property name="text">
            <string>Channel 7</string>
@@ -236,7 +226,7 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="7" column="0">
          <widget class="QRadioButton" name="radioButton_ch_2">
           <property name="text">
            <string>Channel 2</string>
@@ -246,7 +236,27 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="0">
+        <item row="11" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_6">
+          <property name="text">
+           <string>Channel 6</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_1">
+          <property name="text">
+           <string>Channel 1</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
          <widget class="QRadioButton" name="radioButton_ch_5">
           <property name="text">
            <string>Channel 5</string>
@@ -256,15 +266,29 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_3">
-          <property name="text">
-           <string>Channel 3</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_1"/>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_2"/>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_3"/>
+        </item>
+        <item row="9" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_4"/>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_5"/>
+        </item>
+        <item row="11" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_6"/>
+        </item>
+        <item row="12" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_7"/>
+        </item>
+        <item row="13" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_8"/>
         </item>
        </layout>
       </item>
@@ -278,7 +302,7 @@
      <x>0</x>
      <y>0</y>
      <width>1272</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
