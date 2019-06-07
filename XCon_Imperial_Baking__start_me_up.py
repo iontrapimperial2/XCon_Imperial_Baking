@@ -47,6 +47,7 @@ class window(Ui_XCon_Imperial_Baking):
 
         self.pushButton_browse.clicked.connect(self.browse_data)  
         self.pushButton_import.clicked.connect(self.update_data)
+        self.pushButton_save_ch_input.clicked.connect(self.save_channel_input)
         
         self.time = None
         self.p = None
@@ -77,7 +78,7 @@ class window(Ui_XCon_Imperial_Baking):
 #        #---------------------------------------------------------------------#
 #
         self.timer_data = QtCore.QTimer()
-        self.timer_data.setInterval(5000)
+        self.timer_data.setInterval(2000)
         self.timer_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_data.timeout.connect(self.import_data)
 
@@ -108,7 +109,7 @@ class window(Ui_XCon_Imperial_Baking):
         
         #---------------------------------------------------------------------#
         self.timer_plot_data = QtCore.QTimer()
-        self.timer_plot_data.setInterval(5000)
+        self.timer_plot_data.setInterval(2000)
         self.timer_plot_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_plot_data.timeout.connect(self.t_plots)
         self.timer_plot_data.start()
@@ -150,7 +151,24 @@ class window(Ui_XCon_Imperial_Baking):
         except UnicodeDecodeError:
             print('not a suitable file format selected')
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    
+    def save_channel_input(self):
+        current_time = datetime.today()
+        #options = QFileDialog.Options()
+        #options |= QFileDialog.DontUseNativeDialog    
+        #self.filename_monitoring, _ = QFileDialog.setNameFileter(tr("all files (*);; asc files (*.asc);; txt files (*.txt)"), options=options)
         
+        #if self.filename_monitoring:
+        #self.lineEdit_data.setText(self.filename_monitoring)
+        file_name = 'Channel labels.txt'
+        data_file = open(file_name,'a+')       
+        data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch_1.text()) + '\n '+ 
+                        'Channel 2: ' + str(self.lineEdit_ch_2.text()) + '\n '+ 'Channel 3: ' + str(self.lineEdit_ch_3.text()) + '\n '+
+                        'Channel 4: ' + str(self.lineEdit_ch_4.text()) + '\n '+ 'Channel 5: ' + str(self.lineEdit_ch_5.text()) + '\n '+
+                        'Channel 6: ' + str(self.lineEdit_ch_6.text()) + '\n '+ 'Channel 7: ' + str(self.lineEdit_ch_7.text()) + '\n '+
+                        'Channel 8: ' + str(self.lineEdit_ch_8.text()) + '\n ')
+        data_file.close()
+    
     ### import txt file with monitoring of parameters #############################
     def import_txt_file(self,filename):
         
