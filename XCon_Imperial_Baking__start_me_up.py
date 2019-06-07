@@ -77,7 +77,7 @@ class window(Ui_XCon_Imperial_Baking):
 #        #---------------------------------------------------------------------#
 #
         self.timer_data = QtCore.QTimer()
-        self.timer_data.setInterval(30000)
+        self.timer_data.setInterval(5000)
         self.timer_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_data.timeout.connect(self.import_data)
 
@@ -96,116 +96,7 @@ class window(Ui_XCon_Imperial_Baking):
         
         self.verticalLayout_pressure.addWidget(self.plot_pressure)
         #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#   
-#        self.pushButton_lock_laser_blue_2_on.clicked.connect(self.pushButton_lock_laser_blue_2_on_clicked)
-#        self.pushButton_lock_laser_blue_2_off.clicked.connect(self.pushButton_lock_laser_blue_2_off_clicked)
-#        
-#        self.pushButton_smooth_change_laser_blue_2_start.clicked.connect(self.pushButton_smooth_change_laser_blue_2_start_clicked)
-#        self.pushButton_smooth_change_laser_blue_2_stop.clicked.connect(self.pushButton_smooth_change_laser_blue_2_stop_clicked)
-#        #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#
-#        self.timer_t_dependent_plots_laser_blue_2 = QtCore.QTimer()
-#        self.timer_t_dependent_plots_laser_blue_2.setInterval(250)
-#        self.timer_t_dependent_plots_laser_blue_2.setTimerType(QtCore.Qt.PreciseTimer)
-#        self.timer_t_dependent_plots_laser_blue_2.timeout.connect(self.t_dependent_updates_laser_blue_2)
-#        self.timer_t_dependent_plots_laser_blue_2.start()
-#        #---------------------------------------------------------------------#        
-# 
-#
-#
-#        #---------------------------------------------------------------------#
-#        #--- PLOTS, PUSH BUTTONS AND TIMERS FOR LASER RED 1 ------------------#
-#        #---------------------------------------------------------------------#        
-#        self.plot_nu_red_1 = pg.PlotWidget(name = 'widget_plot_nu_red_1')
-#        self.plot_nu_red_1.setBackground(background = brush_background)
-#        self.plot_nu_red_1.setLabel('left', 'nu', units = '[THz]', **labelstyle_L)
-#        self.plot_nu_red_1.setLabel('bottom', 'time', units = '', **labelstyle_L)
-#        self.plot_nu_red_1.showGrid(x = True, y = True)
-#        
-#        self.verticalLayout_nu_laser_red_1.addWidget(self.plot_nu_red_1)
-#        #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#   
-#        self.pushButton_lock_laser_red_1_on.clicked.connect(self.pushButton_lock_laser_red_1_on_clicked)
-#        self.pushButton_lock_laser_red_1_off.clicked.connect(self.pushButton_lock_laser_red_1_off_clicked)
-#        
-#        self.pushButton_smooth_change_laser_red_1_start.clicked.connect(self.pushButton_smooth_change_laser_red_1_start_clicked)
-#        self.pushButton_smooth_change_laser_red_1_stop.clicked.connect(self.pushButton_smooth_change_laser_red_1_stop_clicked)
-#        #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#
-#        self.timer_t_dependent_plots_laser_red_1 = QtCore.QTimer()
-#        self.timer_t_dependent_plots_laser_red_1.setInterval(250)
-#        self.timer_t_dependent_plots_laser_red_1.setTimerType(QtCore.Qt.PreciseTimer)
-#        self.timer_t_dependent_plots_laser_red_1.timeout.connect(self.t_dependent_updates_laser_red_1)
-#        self.timer_t_dependent_plots_laser_red_1.start()
-#        #---------------------------------------------------------------------#
-#        
-#        
-#        #---------------------------------------------------------------------#
-#        #--- PLOTS, PUSH BUTTONS AND TIMERS FOR LASER RED 2 ------------------#
-#        #---------------------------------------------------------------------#        
-#        self.plot_nu_red_2 = pg.PlotWidget(name = 'widget_plot_nu_red_2')
-#        self.plot_nu_red_2.setBackground(background = brush_background)
-#        self.plot_nu_red_2.setLabel('left', 'nu', units = '[THz]', **labelstyle_L)
-#        self.plot_nu_red_2.setLabel('bottom', 'time', units = '', **labelstyle_L)
-#        self.plot_nu_red_2.showGrid(x = True, y = True)
-#        
-#        self.verticalLayout_nu_laser_red_2.addWidget(self.plot_nu_red_2)
-#        #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#   
-#        self.pushButton_lock_laser_red_2_on.clicked.connect(self.pushButton_lock_laser_red_2_on_clicked)
-#        self.pushButton_lock_laser_red_2_off.clicked.connect(self.pushButton_lock_laser_red_2_off_clicked)
-#        
-#        self.pushButton_smooth_change_laser_red_2_start.clicked.connect(self.pushButton_smooth_change_laser_red_2_start_clicked)
-#        self.pushButton_smooth_change_laser_red_2_stop.clicked.connect(self.pushButton_smooth_change_laser_red_2_stop_clicked)
-#        #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#
-#        self.timer_t_dependent_plots_laser_red_2 = QtCore.QTimer()
-#        self.timer_t_dependent_plots_laser_red_2.setInterval(250)
-#        self.timer_t_dependent_plots_laser_red_2.setTimerType(QtCore.Qt.PreciseTimer)
-#        self.timer_t_dependent_plots_laser_red_2.timeout.connect(self.t_dependent_updates_laser_red_2)
-#        self.timer_t_dependent_plots_laser_red_2.start()
-#        #---------------------------------------------------------------------#    
-#
-#
-#
-#        #---------------------------------------------------------------------#
-#        #--- PLOTS, PUSH BUTTONS AND TIMERS FOR SAWTOOTH ---------------------#
-#        #---------------------------------------------------------------------#         
-#        self.plot_sawtooth1 = pg.PlotWidget(name = 'widget_plot_sawtooth')
-#        self.plot_sawtooth1.setBackground(background = brush_background)
-#        self.plot_sawtooth1.setLabel('left', 'nu', units = '[THz]', **labelstyle_L)
-#        self.plot_sawtooth1.setLabel('bottom', 'time', units = '', **labelstyle_L)
-#        self.plot_sawtooth1.showGrid(x = True, y = True)
-#        
-#        self.verticalLayout_sawtooth_blue_1.addWidget(self.plot_sawtooth1)
-#        #---------------------------------------------------------------------#
-#        
-#        #---------------------------------------------------------------------#        
-#        self.plot_sawtooth2 = pg.PlotWidget(name = 'widget_plot_sawtooth')
-#        self.plot_sawtooth2.setBackground(background = brush_background)
-#        self.plot_sawtooth2.setLabel('left', 'nu', units = '[THz]', **labelstyle_L)
-#        self.plot_sawtooth2.setLabel('bottom', 'time', units = '', **labelstyle_L)
-#        self.plot_sawtooth2.showGrid(x = True, y = True)
-#        
-#        self.verticalLayout_sawtooth_blue_2.addWidget(self.plot_sawtooth2)
-#        #---------------------------------------------------------------------#
-#        
-#        self.pushButton_sawtooth_laser_blue_1_and_2_start.clicked.connect(lc.sawtooth_laser_blue_1_and_2_on)
-#        self.pushButton_sawtooth_laser_blue_1_and_2_stop.clicked.connect(lc.sawtooth_laser_blue_1_and_2_off)
-#        
-#        #---------------------------------------------------------------------#
-#        self.timer_t_dependent_plots_sawtooth = QtCore.QTimer()
-#        self.timer_t_dependent_plots_sawtooth.setInterval(250)
-#        self.timer_t_dependent_plots_sawtooth.setTimerType(QtCore.Qt.PreciseTimer)
-#        self.timer_t_dependent_plots_sawtooth.timeout.connect(self.t_dependent_updates_sawtooth)
-#        self.timer_t_dependent_plots_sawtooth.start()
-#        #---------------------------------------------------------------------#
+
         
         
         
@@ -217,7 +108,7 @@ class window(Ui_XCon_Imperial_Baking):
         
         #---------------------------------------------------------------------#
         self.timer_plot_data = QtCore.QTimer()
-        self.timer_plot_data.setInterval(15000)
+        self.timer_plot_data.setInterval(5000)
         self.timer_plot_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_plot_data.timeout.connect(self.t_plots)
         self.timer_plot_data.start()
@@ -277,7 +168,7 @@ class window(Ui_XCon_Imperial_Baking):
         p = [float(data_import[i][1]) for i in range(len(data_import))]
         
         T_channels = []
-        for j in range(2,9):
+        for j in range(2,10):
             T_channel = [float(data_import[i][j]) for i in range(len(data_import))]
             T_channels.append(T_channel)
             
@@ -312,20 +203,7 @@ class window(Ui_XCon_Imperial_Baking):
 
 
 
-#        
-#    def pushButton_lock_laser_blue_1_off_clicked(self):
-#        lc.lock_laser_blue_1_off()
-#        self.label_lock_blue_1_status.setText('OFF')
-#        self.label_lock_blue_1_status.setStyleSheet('color: red')
-#        
-#    def pushButton_smooth_change_laser_blue_1_start_clicked(self):
-#        lc.nu_blue_1_smooth_want = float(self.doubleSpinBox_nu_blue_1_smooth_want.value())
-#        lc.nu_blue_1_smooth_delta_t = float(self.doubleSpinBox_nu_blue_1_smooth_delta_t.value())
-#        lc.smooth_change_laser_blue_1_start()
-#
-#    def pushButton_smooth_change_laser_blue_1_stop_clicked(self):
-#        lc.smooth_change_laser_blue_1_stop()
-#    ###########################################################################   
+   
 #        
     ###########################################################################        
     def t_plots(self):
@@ -352,17 +230,61 @@ class window(Ui_XCon_Imperial_Baking):
             self.plot_pressure.plot(x,self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
         except Exception:
             pass
+        if self.radioButton_ch_1.isChecked() == True:
+            try:               
+               self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was', clear = True)
+            except Exception:
+                #pass
+                print('eh')
+            
+        if self.radioButton_ch_2.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh1')       
         
-        try:               
-            self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
-        except Exception:
-            pass
-
-        try:               
-            self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was')
-        except Exception:
-            pass       
-        
+        if self.radioButton_ch_3.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[2] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh2')
+         
+        if self.radioButton_ch_4.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[3] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh3')
+            
+        if self.radioButton_ch_5.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[4] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh4')   
+         
+        if self.radioButton_ch_6.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[5] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh5')
+         
+        if self.radioButton_ch_7.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[6] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh6')   
+         
+        if self.radioButton_ch_8.isChecked() == True:
+            try:               
+                self.plot_temp.plot(x,self.T_channels[7] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+            except Exception:
+                #pass
+                print('eh7')   
             
 #        nu_blue_1_upper = pg.PlotCurveItem([0,500],[755.186881,755.186881],pen = bluePen)
 #        nu_blue_1_lower = pg.PlotCurveItem([0,500],[755.186879,755.186879],pen = bluePen)
@@ -372,127 +294,7 @@ class window(Ui_XCon_Imperial_Baking):
 #        self.plot_nu_blue_1.addItem(nu_blue_1_lower)
 #        self.plot_nu_blue_1.addItem(nu_blue_1_fill)        
     ###########################################################################    
-#        
-#
-#
-#    ###########################################################################
-#    ### FUNCTIONS FOR LASER BLUE 2 ############################################
-#    ###########################################################################           
-#        
-#    ###########################################################################
-#    def pushButton_lock_laser_blue_2_on_clicked(self):
-#        lc.nu_blue_2_want = float(self.doubleSpinBox_nu_blue_2_want.value())
-#        lc.lock_laser_blue_2_on()
-#        self.label_lock_blue_2_status.setText('ON')
-#        self.label_lock_blue_2_status.setStyleSheet('color: black')        
-#        
-#    def pushButton_lock_laser_blue_2_off_clicked(self):
-#        lc.lock_laser_blue_2_off()
-#        self.label_lock_blue_2_status.setText('OFF')
-#        self.label_lock_blue_2_status.setStyleSheet('color: red')
-#        
-#    def pushButton_smooth_change_laser_blue_2_start_clicked(self):
-#        lc.nu_blue_2_smooth_want = float(self.doubleSpinBox_nu_blue_2_smooth_want.value())
-#        lc.nu_blue_2_smooth_delta_t = float(self.doubleSpinBox_nu_blue_2_smooth_delta_t.value())
-#        lc.smooth_change_laser_blue_2_start()
-#
-#    def pushButton_smooth_change_laser_blue_2_stop_clicked(self):
-#        lc.smooth_change_laser_blue_2_stop()
-#    ###########################################################################   
-#        
-#    ###########################################################################        
-#    def t_dependent_updates_laser_blue_2(self):
-#        
-#        self.label_nu_blue_2_is.setText(str(lc.nu_blue_2_is))
-#        
-##        self.doubleSpinBox_nu_blue_1_want.setValue(lc.nu_blue_1_want)
-#           
-#        lc.lock_blue_2_alpha = float(self.doubleSpinBox_lock_blue_2_alpha.value())
-#        lc.lock_blue_2_beta = float(self.doubleSpinBox_lock_blue_2_beta.value())
-#       
-#        try:
-#            self.plot_nu_blue_2.plot(np.arange(500),lc.nu_blue_2_was[-500:],pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_2_was', clear = True)
-#        except Exception:
-#            pass
-#            
-#        nu_blue_2_upper = pg.PlotCurveItem([0,500],[755.258221,755.258221],pen = bluePen)
-#        nu_blue_2_lower = pg.PlotCurveItem([0,500],[755.258219,755.258219],pen = bluePen)
-#        nu_blue_2_fill = pg.FillBetweenItem(nu_blue_2_upper,nu_blue_2_lower,blueBrush_alpha)
-#        
-#        self.plot_nu_blue_2.addItem(nu_blue_2_upper)
-#        self.plot_nu_blue_2.addItem(nu_blue_2_lower)
-#        self.plot_nu_blue_2.addItem(nu_blue_2_fill)        
-#    ###########################################################################         
-# 
-#
-#
-#    ###########################################################################
-#    ### FUNCTIONS FOR LASER RED 1 #############################################
-#    ###########################################################################           
-#        
-#    ###########################################################################
-#    def pushButton_lock_laser_red_1_on_clicked(self):
-#        lc.nu_red_1_want = float(self.doubleSpinBox_nu_red_1_want.value())
-#        lc.lock_laser_red_1_on()
-#        self.label_lock_red_1_status.setText('ON')
-#        self.label_lock_red_1_status.setStyleSheet('color: black')        
-#        
-#    def pushButton_lock_laser_red_1_off_clicked(self):
-#        lc.lock_laser_red_1_off()
-#        self.label_lock_red_1_status.setText('OFF')
-#        self.label_lock_red_1_status.setStyleSheet('color: red')
-#        
-#    def pushButton_smooth_change_laser_red_1_start_clicked(self):
-#        lc.nu_red_1_smooth_want = float(self.doubleSpinBox_nu_red_1_smooth_want.value())
-#        lc.nu_red_1_smooth_delta_t = float(self.doubleSpinBox_nu_red_1_smooth_delta_t.value())
-#        lc.smooth_change_laser_red_1_start()
-#
-#    def pushButton_smooth_change_laser_red_1_stop_clicked(self):
-#        lc.smooth_change_laser_red_1_stop()
-#    ###########################################################################   
-#        
-#    ###########################################################################        
-#    def t_dependent_updates_laser_red_1(self):
-#        
-#        self.label_nu_red_1_is.setText(str(lc.nu_red_1_is))
-#        
-##        self.doubleSpinBox_nu_blue_1_want.setValue(lc.nu_blue_1_want)
-#           
-#        lc.lock_red_1_alpha = float(self.doubleSpinBox_lock_red_1_alpha.value())
-#        lc.lock_red_1_beta = float(self.doubleSpinBox_lock_red_1_beta.value())
-#       
-#        try:
-#            self.plot_nu_red_1.plot(np.arange(500),lc.nu_red_1_was[-500:],pen = blackPen, symbol = 'o', symbolBrush = redBrush, name = 'nu_red_1_was', clear = True)
-#        except Exception:
-#            pass
-#            
-#        nu_red_1_upper = pg.PlotCurveItem([0,500],[346.000255,346.000255],pen = redPen)
-#        nu_red_1_lower = pg.PlotCurveItem([0,500],[346.000245,346.000245],pen = redPen)
-#        nu_red_1_fill = pg.FillBetweenItem(nu_red_1_upper,nu_red_1_lower,redBrush_alpha)
-#        
-#        self.plot_nu_red_1.addItem(nu_red_1_upper)
-#        self.plot_nu_red_1.addItem(nu_red_1_lower)
-#        self.plot_nu_red_1.addItem(nu_red_1_fill)        
-#    ###########################################################################   
- 
-#
-#
-#    ###########################################################################        
-#    def t_dependent_updates_sawtooth(self):
-#       
-#        lc.sawtooth_nu_blue_1_init = self.doubleSpinBox_sawtooth_nu_blue_1_init.value()
-#        lc.sawtooth_nu_blue_1_detuned = self.doubleSpinBox_sawtooth_nu_blue_1_detuned.value()
-#        lc.sawtooth_nu_blue_2_init = self.doubleSpinBox_sawtooth_nu_blue_2_init.value()
-#        lc.sawtooth_nu_blue_2_detuned = self.doubleSpinBox_sawtooth_nu_blue_2_detuned.value()
-#        lc.sawtooth_delta_t1 = self.doubleSpinBox_sawtooth_delta_t1.value()
-#        lc.sawtooth_delta_t2 = self.doubleSpinBox_sawtooth_delta_t2.value()
-#        lc.sawtooth_total_reps = self.spinBox_sawtooth_total_reps.value()
-#        
-#        lc.f_prepare_sawtooth_laser_blue_1_and_2()
-#            
-#        self.plot_sawtooth1.plot(lc.sawtooth_t_total,lc.sawtooth_nu1_total, order = 0, pen = bluePen, name = 'nu_sawtooth1', clear = True)
-#        self.plot_sawtooth2.plot(lc.sawtooth_t_total,lc.sawtooth_nu2_total, order = 0, pen = bluePen, name = 'nu_sawtooth2', clear = True)
-#    ###########################################################################   
+
 
       
 if __name__ == '__main__':
