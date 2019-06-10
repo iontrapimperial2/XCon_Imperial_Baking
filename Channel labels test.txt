@@ -1,0 +1,11 @@
+
+ 2019-06-10 16:00:02.087500
+ Channel 1: 1
+ Channel 2: 2
+ Channel 3: 3
+ Channel 4: 4
+ Channel 5: 5
+ Channel 6: 6
+ Channel 7: 7
+ Channel 8: 8
+ 

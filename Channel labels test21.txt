@@ -1,0 +1,11 @@
+
+ 2019-06-10 17:39:25.402242
+ Channel 1: sed
+ Channel 2: wer
+ Channel 3: fgh
+ Channel 4: ert
+ Channel 5: sdf
+ Channel 6: tery
+ Channel 7: wer
+ Channel 8: hgf
+ 

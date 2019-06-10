@@ -1,0 +1,11 @@
+
+ 2019-06-10 17:35:18.182781
+ Channel 1: 1
+ Channel 2: 2
+ Channel 3: 3
+ Channel 4: 4
+ Channel 5: fdsg
+ Channel 6: ghj
+ Channel 7: wer
+ Channel 8: ddfg
+ 

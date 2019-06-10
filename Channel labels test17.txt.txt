@@ -1,0 +1,11 @@
+
+ 2019-06-10 17:32:06.059589
+ Channel 1: asd
+ Channel 2: qwe
+ Channel 3: wetdfg
+ Channel 4: ert
+ Channel 5: asfd
+ Channel 6: qwe
+ Channel 7: ert
+ Channel 8: dfg
+ 

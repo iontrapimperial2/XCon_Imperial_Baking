@@ -12,9 +12,12 @@ from library.instr_Agilent_XGS600 import XGS600
 #from library.d_instr_Picolog_TC_08 import Picolog_TC_08
 #from library.d_instr_Agilent_XGS600 import XGS600
 
+#flag = True
+
 ### define logging function
-def oven_log(n):
+def oven_log(self, n):
     "Oven log function. Input file name."
+    
 
     ### inititialise temp and pressure readers ###
     pressure_reader = XGS600()
@@ -28,20 +31,17 @@ def oven_log(n):
         temp_reader.set_channel(i)
 
     ### define data file as dateString in /p_recording ###
-    date_time = 'dummy_data_' + str(n) + '.txt'
+    date_time = str(n) + '.txt'
     
     
-    print('bake recording ctrl_c to stop')
-    while(True):
-        try:
-            data_file = open(date_time,'a+')
-            res_P = pressure_reader.read_all_pressures()
-            res_T = temp_reader.get_single()
-            current_time = datetime.today()
-            data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
-            data_file.close()
-            time.sleep(5)
-        except KeyboardInterrupt:
-            pressure_reader.close_connection()
-            print ('stopped')
-            raise
+#    print('bake recording ctrl_c to stop')
+    while self.flag == True:
+
+        data_file = open(date_time,'a+')
+        res_P = pressure_reader.read_all_pressures()
+        res_T = temp_reader.get_single()
+        current_time = datetime.today()
+        data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
+        data_file.close()
+        time.sleep(5)
+

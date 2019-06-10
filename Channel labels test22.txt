@@ -1,0 +1,11 @@
+
+ 2019-06-10 17:41:59.327136
+ Channel 1: dfg
+ Channel 2: ert
+ Channel 3: ty
+ Channel 4: hgf
+ Channel 5: ert
+ Channel 6: 345
+ Channel 7: gfdgfdgh
+ Channel 8: fgh
+ 
