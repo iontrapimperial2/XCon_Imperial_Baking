@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1272</width>
-    <height>735</height>
+    <height>761</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,62 +17,7 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="1" rowspan="2" colspan="3">
-       <layout class="QVBoxLayout" name="verticalLayout_temp"/>
-      </item>
-      <item row="2" column="0">
-       <spacer name="verticalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="7" column="0">
-       <spacer name="verticalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="1">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="0" column="2">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="1" colspan="4">
+      <item row="2" column="1" colspan="4">
        <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>GroupBox</string>
@@ -81,40 +26,294 @@
          <item>
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="2">
-            <widget class="QRadioButton" name="radioButton_monitoring">
-             <property name="text">
-              <string>Monitoring</string>
+            <spacer name="horizontalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
-            </widget>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
-           <item row="0" column="4">
+           <item row="0" column="1">
+            <spacer name="horizontalSpacer_18">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="8">
             <widget class="QPushButton" name="pushButton_import">
              <property name="text">
               <string>go</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_data"/>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton_browse">
-             <property name="text">
-              <string>Browse</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
+           <item row="1" column="7">
             <widget class="Line" name="line">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
+           <item row="0" column="6">
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" colspan="5">
+            <widget class="QLineEdit" name="lineEdit_data"/>
+           </item>
+           <item row="0" column="8">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="4">
+            <spacer name="horizontalSpacer_19">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="3">
+            <spacer name="horizontalSpacer_20">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_browse">
+             <property name="text">
+              <string>Browse</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="6">
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="1">
+              <widget class="QRadioButton" name="radioButton_monitoring">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>Monitoring</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer_21">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>30</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
           </layout>
          </item>
         </layout>
        </widget>
+      </item>
+      <item row="2" column="0">
+       <spacer name="verticalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="7" column="1" rowspan="2" colspan="3">
+       <layout class="QVBoxLayout" name="verticalLayout_pressure"/>
+      </item>
+      <item row="3" column="4" rowspan="2">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="8" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_3"/>
+        </item>
+        <item row="13" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_8">
+          <property name="text">
+           <string>Channel 8</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_4"/>
+        </item>
+        <item row="9" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_4">
+          <property name="text">
+           <string>Channel 4</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_7"/>
+        </item>
+        <item row="12" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_7">
+          <property name="text">
+           <string>Channel 7</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_2">
+          <property name="text">
+           <string>Channel 2</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_3">
+          <property name="text">
+           <string>Channel 3</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_1"/>
+        </item>
+        <item row="13" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_8"/>
+        </item>
+        <item row="11" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_6">
+          <property name="text">
+           <string>Channel 6</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_1">
+          <property name="text">
+           <string>Channel 1</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_2"/>
+        </item>
+        <item row="10" column="0">
+         <widget class="QRadioButton" name="radioButton_ch_5">
+          <property name="text">
+           <string>Channel 5</string>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_6"/>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLineEdit" name="lineEdit_ch_5"/>
+        </item>
+       </layout>
       </item>
       <item row="8" column="0">
        <spacer name="verticalSpacer_3">
@@ -142,6 +341,61 @@
         </property>
        </spacer>
       </item>
+      <item row="3" column="0">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="0">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="1" rowspan="2" colspan="3">
+       <layout class="QVBoxLayout" name="verticalLayout_temp"/>
+      </item>
+      <item row="0" column="1">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="0" column="3">
        <spacer name="horizontalSpacer_4">
         <property name="orientation">
@@ -155,11 +409,253 @@
         </property>
        </spacer>
       </item>
-      <item row="7" column="1" rowspan="2" colspan="3">
-       <layout class="QVBoxLayout" name="verticalLayout_pressure"/>
+      <item row="1" column="1" colspan="4">
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>GroupBox</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="4">
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="7">
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="6">
+            <widget class="QPushButton" name="pushButton_Start">
+             <property name="text">
+              <string>Start</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="7">
+            <widget class="QPushButton" name="pushButton_Stop">
+             <property name="text">
+              <string>Stop</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <spacer name="horizontalSpacer_11">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_Browse1">
+             <property name="text">
+              <string>Browse</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="6">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" colspan="5">
+            <widget class="QLineEdit" name="lineEdit_savefile"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLineEdit" name="lineEdit_ch1in"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEdit_ch2in"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="lineEdit_ch3in"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="lineEdit_ch4in"/>
+           </item>
+           <item row="2" column="4">
+            <widget class="QLineEdit" name="lineEdit_ch5in"/>
+           </item>
+           <item row="2" column="5">
+            <widget class="QLineEdit" name="lineEdit_ch6in"/>
+           </item>
+           <item row="2" column="6">
+            <widget class="QLineEdit" name="lineEdit_ch7in"/>
+           </item>
+           <item row="2" column="7">
+            <widget class="QLineEdit" name="lineEdit_ch8in"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_ch1">
+             <property name="text">
+              <string>Channel 1</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_ch2">
+             <property name="text">
+              <string>Channel 2</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="label_ch3">
+             <property name="text">
+              <string>Channel 3</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLabel" name="label_ch4">
+             <property name="text">
+              <string>Channel 4</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QLabel" name="label_ch5">
+             <property name="text">
+              <string>Channel 5</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="5">
+            <widget class="QLabel" name="label_ch6">
+             <property name="text">
+              <string>Channel 6</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="6">
+            <widget class="QLabel" name="label_ch7">
+             <property name="text">
+              <string>Channel 7</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="7">
+            <widget class="QLabel" name="label_ch8">
+             <property name="text">
+              <string>Channel 8</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
       </item>
       <item row="1" column="0">
-       <spacer name="verticalSpacer_7">
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -171,8 +667,8 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="0">
-       <spacer name="verticalSpacer">
+      <item row="7" column="0">
+       <spacer name="verticalSpacer_5">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -183,121 +679,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="2" column="4" rowspan="2">
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="13" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_8">
-          <property name="text">
-           <string>Channel 8</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_3">
-          <property name="text">
-           <string>Channel 3</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_4">
-          <property name="text">
-           <string>Channel 4</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="12" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_7">
-          <property name="text">
-           <string>Channel 7</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_2">
-          <property name="text">
-           <string>Channel 2</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="11" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_6">
-          <property name="text">
-           <string>Channel 6</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_1">
-          <property name="text">
-           <string>Channel 1</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="10" column="0">
-         <widget class="QRadioButton" name="radioButton_ch_5">
-          <property name="text">
-           <string>Channel 5</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_1"/>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_2"/>
-        </item>
-        <item row="8" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_3"/>
-        </item>
-        <item row="9" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_4"/>
-        </item>
-        <item row="10" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_5"/>
-        </item>
-        <item row="11" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_6"/>
-        </item>
-        <item row="12" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_7"/>
-        </item>
-        <item row="13" column="1">
-         <widget class="QLineEdit" name="lineEdit_ch_8"/>
-        </item>
-       </layout>
-      </item>
-      <item row="4" column="4">
-       <widget class="QPushButton" name="pushButton_save_ch_input">
-        <property name="text">
-         <string>Save Channel Label</string>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
