@@ -11,14 +11,16 @@ from PyQt5.QtWidgets import QFileDialog
 import pyqtgraph as pg
 import csv
 import numpy as np
-import matplotlib as plt
-from date_axis_item import DateAxisItem
+#import matplotlib as plt
+#from date_axis_item import DateAxisItem
 from datetime import datetime
 import time
 import threading
 
-#from XCon_Imperial_main import laser_control
 from XCon_Imperial_Baking_gui import Ui_XCon_Imperial_Baking
+
+#from library.d_instr_Picolog_TC_08 import Picolog_TC_08
+#from library.d_instr_Agilent_XGS600 import XGS600
 
 from library.instr_Picolog_TC_08 import Picolog_TC_08
 from library.instr_Agilent_XGS600 import XGS600
@@ -72,7 +74,7 @@ class window(Ui_XCon_Imperial_Baking):
         
 
         #---------------------------------------------------------------------#
-        #--- PLOTS, PUSH BUTTONS AND TIMERS FOR PRESSURE ---------------------#
+        #--- PLOTS, PUSH BUTTONS AND TIMERS FOR TEMPERATURE ------------------#
         #---------------------------------------------------------------------#        
         self.plot_temp = pg.PlotWidget(name = 'widget_plot_temp')
         self.plot_temp.setBackground(background = brush_background)
@@ -85,20 +87,13 @@ class window(Ui_XCon_Imperial_Baking):
         
         self.verticalLayout_temp.addWidget(self.plot_temp)
         #---------------------------------------------------------------------#
-#
-#        #---------------------------------------------------------------------#   
-#        self.pushButton_lock_laser_blue_1_on.clicked.connect(self.pushButton_lock_laser_blue_1_on_clicked)
-#        self.pushButton_lock_laser_blue_1_off.clicked.connect(self.pushButton_lock_laser_blue_1_off_clicked)
-#        
-#        self.pushButton_smooth_change_laser_blue_1_start.clicked.connect(self.pushButton_smooth_change_laser_blue_1_start_clicked)
-#        self.pushButton_smooth_change_laser_blue_1_stop.clicked.connect(self.pushButton_smooth_change_laser_blue_1_stop_clicked)
-#        #---------------------------------------------------------------------#
-#
+        
+        #---------------------------------------------------------------------#
         self.timer_data = QtCore.QTimer()
         self.timer_data.setInterval(2000)
         self.timer_data.setTimerType(QtCore.Qt.PreciseTimer)
         self.timer_data.timeout.connect(self.import_data)
-
+        #---------------------------------------------------------------------#
 
 
 
@@ -114,15 +109,6 @@ class window(Ui_XCon_Imperial_Baking):
         
         self.verticalLayout_pressure.addWidget(self.plot_pressure)
         #---------------------------------------------------------------------#
-
-        
-        
-        
-        
-        
-        
-        
-        
         
         #---------------------------------------------------------------------#
         self.timer_plot_data = QtCore.QTimer()
@@ -131,16 +117,9 @@ class window(Ui_XCon_Imperial_Baking):
         self.timer_plot_data.timeout.connect(self.t_plots)
         self.timer_plot_data.start()
         #---------------------------------------------------------------------#  
-        
-        
-#    ###########################################################################
-#    ###########################################################################
-#    ### THE FUNCTIONS FOR THE PUSH BUTTONS ####################################
-#    ###########################################################################
-#    ########################################################################### 
-#    
-#    
-#    
+    
+    
+    
     ###########################################################################
     ### FUNCTIONS DATA SELECTION ##############################################
     ###########################################################################  
@@ -165,7 +144,7 @@ class window(Ui_XCon_Imperial_Baking):
             self.lineEdit_savefile.setText(self.filename_save)
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
  
-    ### start and stop oven_logger #############################
+    #~~~ start and stop oven_logger ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def start_oven_logger(self):
         self.flag = True
         a = self.lineEdit_savefile.text()
@@ -189,6 +168,7 @@ class window(Ui_XCon_Imperial_Baking):
         
     def stop_oven_logger(self):
         self.flag = False
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def import_data(self):
@@ -215,7 +195,6 @@ class window(Ui_XCon_Imperial_Baking):
         self.filename1 = str(e) + 'Channel labels ' + str(d) + '.txt'
 
         ### load and prepare data
-
         try:
             self.import_txt_file1(self.filename1)
         except FileNotFoundError:
@@ -224,10 +203,8 @@ class window(Ui_XCon_Imperial_Baking):
             print('not a suitable file format selected')
         
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-    
-    
-    
-    ### import txt file with monitoring of parameters #############################
+       
+    #~~~ import txt file with monitoring of parameters ~~~~~~~~~~~~~~~~~~~~~~~#
     def import_txt_file(self,filename):
         
         ### read the file
@@ -258,11 +235,10 @@ class window(Ui_XCon_Imperial_Baking):
         self.p = p
         self.T_channels = T_channels
         
-#        print(self.time)
-        
-    ###############################################################################
+#        print(self.time)        
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-    ### import txt file with channel labels #############################
+    #~~~ import txt file with channel labels ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def import_txt_file1(self,filename):
         
         ### read the file
@@ -276,18 +252,16 @@ class window(Ui_XCon_Imperial_Baking):
             self.lineEdit_ch_6.setText(str(data_import[7])[14:-2])
             self.lineEdit_ch_7.setText(str(data_import[8])[14:-2])
             self.lineEdit_ch_8.setText(str(data_import[9])[14:-2])
-
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
         
-        
-    ###############################################################################        
-
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def update_data(self):
         
         if self.radioButton_monitoring.isChecked() == True:
-            #---------------------------------------------------------------------#
+            #-----------------------------------------------------------------#
             self.timer_data.start()
             
-            #---------------------------------------------------------------------#
+            #-----------------------------------------------------------------#
         else:
             try:
                 print('s')
@@ -297,102 +271,82 @@ class window(Ui_XCon_Imperial_Baking):
             self.import_data()
             self.import_labels()
             self.t_plots()
-
-            
-
-
-   
-#        
-    ###########################################################################        
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+                    
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#        
     def t_plots(self):
-        
-#        self.label_nu_blue_1_is.setText(str(lc.nu_blue_1_is))
-        
-#        self.doubleSpinBox_nu_blue_1_want.setValue(lc.nu_blue_1_want)
-           
-#        lc.lock_blue_1_alpha = float(self.doubleSpinBox_lock_blue_1_alpha.value())
-#        lc.lock_blue_1_beta = float(self.doubleSpinBox_lock_blue_1_beta.value())
 
         try:               
             x = np.arange(len(self.time))
         except Exception:
             pass
-
-
         
-        try:
-#            time_plot = []
-#            for i in range(len(self.time)):
-#                time_plot.append(time.mktime(datetime.datetime.now().timetuple()))
-                
-            self.plot_pressure.plot(x,self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'nu_blue_1_was', clear = True)
+        try:                
+            self.plot_pressure.plot(x,self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'pressure', clear = True)
         except Exception:
             pass
         if self.radioButton_ch_1.isChecked() == True:
             try:               
-               self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was', clear = True)
+               self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', name = 'ch_1', clear = True)
             except Exception:
                 #pass
                 print('eh')
             
         if self.radioButton_ch_2.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', name = 'ch_2')
             except Exception:
                 #pass
                 print('eh1')       
         
         if self.radioButton_ch_3.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[2] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[2] ,pen = blackPen, symbol = 'o', name = 'ch_3')
             except Exception:
                 #pass
                 print('eh2')
          
         if self.radioButton_ch_4.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[3] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[3] ,pen = blackPen, symbol = 'o', name = 'ch_4')
             except Exception:
                 #pass
                 print('eh3')
             
         if self.radioButton_ch_5.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[4] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[4] ,pen = blackPen, symbol = 'o', name = 'ch_5')
             except Exception:
                 #pass
                 print('eh4')   
          
         if self.radioButton_ch_6.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[5] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[5] ,pen = blackPen, symbol = 'o', name = 'ch_6')
             except Exception:
                 #pass
                 print('eh5')
          
         if self.radioButton_ch_7.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[6] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[6] ,pen = blackPen, symbol = 'o', name = 'ch_7')
             except Exception:
                 #pass
                 print('eh6')   
          
         if self.radioButton_ch_8.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[7] ,pen = blackPen, symbol = 'o', name = 'nu_blue_1_was')
+                self.plot_temp.plot(x,self.T_channels[7] ,pen = blackPen, symbol = 'o', name = 'ch_8')
             except Exception:
                 #pass
-                print('eh7')   
-            
-#        nu_blue_1_upper = pg.PlotCurveItem([0,500],[755.186881,755.186881],pen = bluePen)
-#        nu_blue_1_lower = pg.PlotCurveItem([0,500],[755.186879,755.186879],pen = bluePen)
-#        nu_blue_1_fill = pg.FillBetweenItem(nu_blue_1_upper,nu_blue_1_lower,blueBrush_alpha)
-        
-#        self.plot_nu_blue_1.addItem(nu_blue_1_upper)
-#        self.plot_nu_blue_1.addItem(nu_blue_1_lower)
-#        self.plot_nu_blue_1.addItem(nu_blue_1_fill)        
-    ###########################################################################    
-    ### define logging function
+                print('eh7')      
+                
+#            time_plot = []
+#            for i in range(len(self.time)):
+#                time_plot.append(time.mktime(datetime.datetime.now().timetuple()))
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    
+    #~~~ define logging function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def oven_log(self, n):
         "Oven log function. Input file name."
         
@@ -412,7 +366,6 @@ class window(Ui_XCon_Imperial_Baking):
         date_time = str(n) + '.txt'
         
         
-    #    print('bake recording ctrl_c to stop')
         while self.flag == True:
     
             data_file = open(date_time,'a+')
@@ -422,8 +375,12 @@ class window(Ui_XCon_Imperial_Baking):
             data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
             data_file.close()
             time.sleep(5)
-
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
       
+    
+    
+
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     
