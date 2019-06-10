@@ -6,11 +6,11 @@
 import time
 from datetime import datetime
 
-#from library.instr_Picolog_TC_08 import Picolog_TC_08
-#from library.instr_Agilent_XGS600 import XGS600
+from library.instr_Picolog_TC_08 import Picolog_TC_08
+from library.instr_Agilent_XGS600 import XGS600
 
-from library.d_instr_Picolog_TC_08 import Picolog_TC_08
-from library.d_instr_Agilent_XGS600 import XGS600
+#from library.d_instr_Picolog_TC_08 import Picolog_TC_08
+#from library.d_instr_Agilent_XGS600 import XGS600
 
 ### define logging function
 def oven_log(n):
