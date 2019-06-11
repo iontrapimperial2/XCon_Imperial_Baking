@@ -16,6 +16,7 @@ import numpy as np
 from datetime import datetime
 import time
 import threading
+from os import path as p
 
 from XCon_Imperial_Baking_gui import Ui_XCon_Imperial_Baking
 
@@ -38,6 +39,21 @@ redPen = pg.mkPen(color = redBrush, width = 2)
 
 blackBrush = (0,0,0,255)
 blackPen = pg.mkPen(color = blackBrush, width = 2) 
+
+aquaBrush = (0,255,255)
+aquaPen = pg.mkPen(color = aquaBrush, width = 2) 
+
+bluevioletBrush = (138,43,226)
+bluevioletPen = pg.mkPen(color = bluevioletBrush, width = 2) 
+
+chartreuseBrush = (102,205,0)
+chartreusePen = pg.mkPen(color = chartreuseBrush, width = 2) 
+
+chocolateBrush = (139,69,19)
+chocolatePen = pg.mkPen(color = chocolateBrush, width = 2) 
+
+goldBrush = (255,215,0)
+goldPen = pg.mkPen(color = goldBrush, width = 2) 
 
 labelstyle_L = {'color': '#000', 'font-size': '12pt'}
 
@@ -147,24 +163,42 @@ class window(Ui_XCon_Imperial_Baking):
     #~~~ start and stop oven_logger ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def start_oven_logger(self):
         self.flag = True
-        a = self.lineEdit_savefile.text()
+        
         current_time = datetime.today()
         
-        
+        a = self.lineEdit_savefile.text()
         b = a.rfind('/')
-        c = a[(b+1):]
-
-        
-        file_name = 'Channel labels ' + str(c) + '.txt'
-        data_file = open(file_name,'a+')       
-        data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
+        c = a[:(b+1)]
+        d = a.rfind('.')
+        save_path = str(c)
+        if d == -1:
+            e = a[(b+1):]
+            file_name = p.join(save_path, 'Channel labels ' + str(e)+".txt")
+            data_file = open(file_name,'a+') 
+            data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
                         'Channel 2: ' + str(self.lineEdit_ch2in.text()) + '\n '+ 'Channel 3: ' + str(self.lineEdit_ch3in.text()) + '\n '+
                         'Channel 4: ' + str(self.lineEdit_ch4in.text()) + '\n '+ 'Channel 5: ' + str(self.lineEdit_ch5in.text()) + '\n '+
                         'Channel 6: ' + str(self.lineEdit_ch6in.text()) + '\n '+ 'Channel 7: ' + str(self.lineEdit_ch7in.text()) + '\n '+
                         'Channel 8: ' + str(self.lineEdit_ch8in.text()) + '\n ')
-        data_file.close()
-        start_ovenlog = threading.Thread(target = self.oven_log, args=[c])
-        start_ovenlog.start()
+            data_file.close()
+            start_ovenlog = threading.Thread(target = self.oven_log, args=[e])
+            start_ovenlog.start()
+        else:
+            e = a[(b+1):d]
+
+            file_name = p.join(save_path, 'Channel labels ' + str(e)+".txt")
+            data_file = open(file_name,'a+') 
+            data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
+                    'Channel 2: ' + str(self.lineEdit_ch2in.text()) + '\n '+ 'Channel 3: ' + str(self.lineEdit_ch3in.text()) + '\n '+
+                    'Channel 4: ' + str(self.lineEdit_ch4in.text()) + '\n '+ 'Channel 5: ' + str(self.lineEdit_ch5in.text()) + '\n '+
+                    'Channel 6: ' + str(self.lineEdit_ch6in.text()) + '\n '+ 'Channel 7: ' + str(self.lineEdit_ch7in.text()) + '\n '+
+                    'Channel 8: ' + str(self.lineEdit_ch8in.text()) + '\n ')
+            data_file.close()
+            start_ovenlog = threading.Thread(target = self.oven_log, args=[e])
+            start_ovenlog.start()
+    
+             
+        
         
     def stop_oven_logger(self):
         self.flag = False
@@ -260,6 +294,7 @@ class window(Ui_XCon_Imperial_Baking):
         if self.radioButton_monitoring.isChecked() == True:
             #-----------------------------------------------------------------#
             self.timer_data.start()
+
             
             #-----------------------------------------------------------------#
         else:
@@ -268,9 +303,9 @@ class window(Ui_XCon_Imperial_Baking):
                 self.timer_data.stop()
             except:
                 pass
-            self.import_data()
-            self.import_labels()
-            self.t_plots()
+        self.import_data()
+        self.import_labels()
+        self.t_plots()
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
                     
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#        
@@ -282,61 +317,61 @@ class window(Ui_XCon_Imperial_Baking):
             pass
         
         try:                
-            self.plot_pressure.plot(x,self.p ,pen = blackPen, symbol = 'o', symbolBrush = blueBrush, name = 'pressure', clear = True)
+            self.plot_pressure.plot(x,self.p ,pen = bluePen, symbol = 'o', symbolBrush = blackBrush, name = 'pressure', clear = True)
         except Exception:
             pass
         if self.radioButton_ch_1.isChecked() == True:
             try:               
-               self.plot_temp.plot(x,self.T_channels[0] ,pen = blackPen, symbol = 'o', name = 'ch_1', clear = True)
+               self.plot_temp.plot(x,self.T_channels[0] ,pen = bluePen, symbol = 'o', symbolBrush = blueBrush, name = 'ch_1', clear = True)
             except Exception:
                 #pass
                 print('eh')
             
         if self.radioButton_ch_2.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[1] ,pen = blackPen, symbol = 'o', name = 'ch_2')
+                self.plot_temp.plot(x,self.T_channels[1] ,pen = redPen, symbol = 'o', symbolBrush = redBrush, name = 'ch_2')
             except Exception:
                 #pass
                 print('eh1')       
         
         if self.radioButton_ch_3.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[2] ,pen = blackPen, symbol = 'o', name = 'ch_3')
+                self.plot_temp.plot(x,self.T_channels[2] ,pen = aquaPen, symbol = 'o', symbolBrush = aquaBrush, name = 'ch_3')
             except Exception:
                 #pass
                 print('eh2')
          
         if self.radioButton_ch_4.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[3] ,pen = blackPen, symbol = 'o', name = 'ch_4')
+                self.plot_temp.plot(x,self.T_channels[3] ,pen = bluevioletPen, symbol = 'o', symbolBrush = bluevioletBrush, name = 'ch_4')
             except Exception:
                 #pass
                 print('eh3')
             
         if self.radioButton_ch_5.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[4] ,pen = blackPen, symbol = 'o', name = 'ch_5')
+                self.plot_temp.plot(x,self.T_channels[4] ,pen = chartreusePen, symbol = 'o', symbolBrush = chartreuseBrush, name = 'ch_5')
             except Exception:
                 #pass
                 print('eh4')   
          
         if self.radioButton_ch_6.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[5] ,pen = blackPen, symbol = 'o', name = 'ch_6')
+                self.plot_temp.plot(x,self.T_channels[5] ,pen = blackPen, symbol = 'o', symbolBrush = blackBrush, name = 'ch_6')
             except Exception:
                 #pass
                 print('eh5')
          
         if self.radioButton_ch_7.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[6] ,pen = blackPen, symbol = 'o', name = 'ch_7')
+                self.plot_temp.plot(x,self.T_channels[6] ,pen = chocolatePen, symbol = 'o', symbolBrush = chocolateBrush, name = 'ch_7')
             except Exception:
                 #pass
                 print('eh6')   
          
         if self.radioButton_ch_8.isChecked() == True:
             try:               
-                self.plot_temp.plot(x,self.T_channels[7] ,pen = blackPen, symbol = 'o', name = 'ch_8')
+                self.plot_temp.plot(x,self.T_channels[7] ,pen = goldPen, symbol = 'o', symbolBrush = goldBrush, name = 'ch_8')
             except Exception:
                 #pass
                 print('eh7')      
@@ -363,18 +398,36 @@ class window(Ui_XCon_Imperial_Baking):
             temp_reader.set_channel(i)
     
         ### define data file as dateString in /p_recording ###
-        date_time = str(n) + '.txt'
+        a = self.lineEdit_savefile.text()
+        b = a.rfind('/')
+        c = a[:(b+1)]
+        d = n.rfind('.')
+
+        save_path = str(c)
+        
+        #date_time = p.join(save_path, str(n)+".txt")
         
         
         while self.flag == True:
-    
-            data_file = open(date_time,'a+')
             res_P = pressure_reader.read_all_pressures()
             res_T = temp_reader.get_single()
             current_time = datetime.today()
-            data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
-            data_file.close()
-            time.sleep(5)
+            if d == -1:
+                date_time = p.join(save_path, str(n)+".txt")
+                data_file = open(date_time,'a+')
+                data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
+                data_file.close()
+                time.sleep(5)
+            else:
+                e = n[:d]
+
+                date_time = p.join(save_path,  + str(e) + ".txt")
+                data_file = open(date_time,'a+')
+                data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
+                data_file.close()
+                time.sleep(5)
+                
+
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
       
     

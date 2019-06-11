@@ -9,3 +9,13 @@
  Channel 7: 7
  Channel 8: 8
  
+ 2019-06-11 09:34:18.613718
+ Channel 1: he
+ Channel 2: ete
+ Channel 3: er123
+ Channel 4: ewrsdgf
+ Channel 5: cxv
+ Channel 6: fg
+ Channel 7: nb
+ Channel 8: ert
+ 
