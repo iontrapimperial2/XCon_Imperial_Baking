@@ -164,7 +164,6 @@ class window(Ui_XCon_Imperial_Baking):
     def start_oven_logger(self):
         self.flag = True
         
-        current_time = datetime.today()
         
         a = self.lineEdit_savefile.text()
         b = a.rfind('/')
@@ -173,36 +172,37 @@ class window(Ui_XCon_Imperial_Baking):
         save_path = str(c)
         if d == -1:
             e = a[(b+1):]
-            file_name = p.join(save_path, 'Channel labels ' + str(e)+".txt")
-            data_file = open(file_name,'a+') 
-            data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
-                        'Channel 2: ' + str(self.lineEdit_ch2in.text()) + '\n '+ 'Channel 3: ' + str(self.lineEdit_ch3in.text()) + '\n '+
-                        'Channel 4: ' + str(self.lineEdit_ch4in.text()) + '\n '+ 'Channel 5: ' + str(self.lineEdit_ch5in.text()) + '\n '+
-                        'Channel 6: ' + str(self.lineEdit_ch6in.text()) + '\n '+ 'Channel 7: ' + str(self.lineEdit_ch7in.text()) + '\n '+
-                        'Channel 8: ' + str(self.lineEdit_ch8in.text()) + '\n ')
-            data_file.close()
-            start_ovenlog = threading.Thread(target = self.oven_log, args=[e])
-            start_ovenlog.start()
+            self.save_label(e,save_path)
+            self.start_oven_thread(e)
         else:
             e = a[(b+1):d]
-
-            file_name = p.join(save_path, 'Channel labels ' + str(e)+".txt")
-            data_file = open(file_name,'a+') 
-            data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
+            self.save_label(e,save_path)
+            self.start_oven_thread(e)
+    
+    
+    def stop_oven_logger(self):
+        self.flag = False
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#    
+    
+    def save_label(self, n,s):
+        current_time = datetime.today()
+        file_name = p.join(s, 'Channel labels ' + str(n)+".txt")
+        data_file = open(file_name,'a+') 
+        data_file.write('\n ' + str(current_time) + '\n ' + 'Channel 1: ' + str(self.lineEdit_ch1in.text()) + '\n '+ 
                     'Channel 2: ' + str(self.lineEdit_ch2in.text()) + '\n '+ 'Channel 3: ' + str(self.lineEdit_ch3in.text()) + '\n '+
                     'Channel 4: ' + str(self.lineEdit_ch4in.text()) + '\n '+ 'Channel 5: ' + str(self.lineEdit_ch5in.text()) + '\n '+
                     'Channel 6: ' + str(self.lineEdit_ch6in.text()) + '\n '+ 'Channel 7: ' + str(self.lineEdit_ch7in.text()) + '\n '+
                     'Channel 8: ' + str(self.lineEdit_ch8in.text()) + '\n ')
-            data_file.close()
-            start_ovenlog = threading.Thread(target = self.oven_log, args=[e])
-            start_ovenlog.start()
+        data_file.close()
+        
     
+    def start_oven_thread(self, n):
+        start_ovenlog = threading.Thread(target = self.oven_log, args=[n])
+        start_ovenlog.start()
              
         
         
-    def stop_oven_logger(self):
-        self.flag = False
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
     
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def import_data(self):
@@ -425,7 +425,8 @@ class window(Ui_XCon_Imperial_Baking):
                 data_file = open(date_time,'a+')
                 data_file.write(str(current_time) + ', ' + str(res_P[0]) + ', ' + str(res_T[0])+ ', ' + str(res_T[1]) + ', ' + str(res_T[2]) + ', ' + str(res_T[3]) + ', ' + str(res_T[4]) + ', ' + str(res_T[5]) + ', ' + str(res_T[6]) + ', ' + str(res_T[7]) + '\n')
                 data_file.close()
-                time.sleep(5)
+                time.sleep(30)
+                
                 
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

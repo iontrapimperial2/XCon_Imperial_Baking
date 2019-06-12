@@ -1,0 +1,11 @@
+
+ 2019-06-11 12:07:33.002899
+ Channel 1: sad
+ Channel 2: saf
+ Channel 3: df
+ Channel 4: gf
+ Channel 5: a
+ Channel 6: dsa
+ Channel 7: fd
+ Channel 8: dfa
+ 
